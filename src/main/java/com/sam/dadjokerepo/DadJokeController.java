@@ -1,6 +1,6 @@
 package com.sam.dadjokerepo;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class DadJokeController {
 
     public DadJokeController(DadJokeRepository repository) {this.repository = repository;}
 
-    @GetMapping("/")
+    @RequestMapping("/")
     String getRandomDadJoke() {
         List<DadJoke> dadJokeList = repository.findAll();
         Random random = new Random();
