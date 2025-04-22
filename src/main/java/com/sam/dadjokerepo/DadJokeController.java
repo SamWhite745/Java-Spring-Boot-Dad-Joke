@@ -22,9 +22,9 @@ public class DadJokeController {
         return "joke";
     }
 
-    String getRandomDadJoke() {
+    DadJoke getRandomDadJoke() {
         List<DadJoke> dadJokeList = repository.findAll();
         Random random = new Random();
-        return dadJokeList.get(random.nextInt(dadJokeList.size())).toString();
+        return dadJokeList.get(random.nextInt(dadJokeList.size()));
     }
 }

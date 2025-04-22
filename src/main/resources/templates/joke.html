@@ -5,6 +5,8 @@
     <title>Welcome to my Random Joke Generator!</title>
 </head>
 <body>
-<p th:utext="${randomJoke}"> </p>
+<h1>Care for a random joke?</h1>
+<p th:utext="${randomJoke.getJoke()}"></p>
+<p th:utext="'This joke\'s id is: ' + ${randomJoke.getId()}"></p>
 </body>
 </html>

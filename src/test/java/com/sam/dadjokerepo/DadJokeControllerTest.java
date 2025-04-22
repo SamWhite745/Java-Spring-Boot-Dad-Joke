@@ -27,6 +27,6 @@ public class DadJokeControllerTest {
 
         when(this.dadJokeRepository.findAll()).thenReturn(dadJokeList);
 
-        assertEquals("id=0, This is a Dad Joke", dadJokeController.getRandomDadJoke());
+        assertEquals("This is a Dad Joke", dadJokeController.getRandomDadJoke().getJoke());
     }
 }
