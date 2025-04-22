@@ -1,19 +1,27 @@
 package com.sam.dadjokerepo;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Random;
 
-@RestController
+@Controller
 public class DadJokeController {
 
     private final DadJokeRepository repository;
 
     public DadJokeController(DadJokeRepository repository) {this.repository = repository;}
 
-    @RequestMapping("/")
+    @GetMapping("/")
+    public String viewHomePage(Model model) {
+        model.addAttribute("randomJoke", getRandomDadJoke());
+        return "joke";
+    }
+
     String getRandomDadJoke() {
         List<DadJoke> dadJokeList = repository.findAll();
         Random random = new Random();
